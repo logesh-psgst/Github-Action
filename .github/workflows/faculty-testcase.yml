@@ -22,6 +22,8 @@ jobs:
         node-version: 10.0
 
     - name: Build code
+      run: npm install -g grunt-cli
+      run: npm install -g bower
       run: npm install && npm bower install && grunt
 
     - name: Test Case
