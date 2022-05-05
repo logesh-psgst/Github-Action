@@ -1,0 +1,28 @@
+name: edu-erp-faulty
+
+on:
+  push:
+    branches: 
+      - master
+      - PSGITECH
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.5
+      with:
+        # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+        node-version: 10.0
+
+    - name: Build code
+      run: npm install && npm bower install && grunt
+
+    - name: Test Case
+      run: Unit test case
